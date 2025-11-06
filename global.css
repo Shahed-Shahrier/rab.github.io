@@ -1,0 +1,25 @@
+
+
+
+
+:root {
+  	
+  	/* Common Style Variables */
+  	
+  	/* Color */
+  	--color-gray: #fdfdfd;
+  	--color-white: #fff;
+  	
+  	/* Font */
+  	--font-gajraj-one: Gajraj One;
+  	
+  	/* FontSize */
+  	--fs-20: 20px;
+  	
+  	/* Gradients */
+  	--gradient-1: linear-gradient(90deg, #f3f2ff, #a2ff94 50.96%, var(--color-white));
+  	
+  	/* WidthHeights */
+  	--height-35_3: 35.3px;
+  	
+}

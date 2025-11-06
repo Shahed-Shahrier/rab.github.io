@@ -1,0 +1,496 @@
+/* Copied from styles1.css and adjusted for root-level assets */
+/* General body and container */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+    background: linear-gradient(180deg, #131313 0%, #020604 100%);
+    overflow-x: hidden;
+    min-height: 100vh;
+    color: white;
+}
+
+.team-section {
+    position: relative;
+    width: 100%;
+    min-height: 3000px;
+    padding-bottom: 200px;
+    padding-top: 80px;
+    overflow: hidden;
+    /* Fallback background image if video doesn't load */
+    background-image: url('Untitled design (3).jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* Video Background - Fixed to viewport */
+.team-section .video-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+    object-fit: cover;
+    background: #000;
+    /* Fixed to viewport - stays in place while scrolling */
+}
+
+/* Dark overlay for readability - Fixed to viewport */
+.team-section::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+    pointer-events: none;
+    /* Fixed to viewport - stays in place while scrolling */
+}
+
+/* Image Overlay on Video - Fixed to viewport */
+.video-overlay-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+    /* Pinned to viewport - stays in place while scrolling */
+}
+
+.video-overlay-image .overlay-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4; /* Adjust opacity to blend with video */
+    mix-blend-mode: overlay; /* You can change this: normal, overlay, screen, multiply, etc. */
+}
+
+/* Content Wrapper - ensures content is above video and overlay */
+.content-wrapper {
+    position: relative;
+    z-index: 3;
+    width: 100%;
+}
+
+/* Titles */
+.title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;
+    width: auto;
+    max-width: 90%;
+    text-align: center;
+    color: white;
+    font-size: 36px;
+    font-family: 'Gajraj One', sans-serif;
+    font-weight: 400;
+    white-space: nowrap;
+    z-index: 2;
+    padding: 0 20px;
+}
+
+/* Highlight Box */
+.highlight-box {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100px;
+    width: 100%;
+    max-width: 800px;
+    height: 50px;
+    background: rgba(239, 0, 3, 0.63);
+    z-index: 1;
+}
+
+/* Section Titles & Divider */
+.section-title {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: auto;
+    min-width: 200px;
+    text-align: center;
+    color: white;
+    font-size: 40px;
+    font-family: 'Gajraj One', sans-serif;
+    font-weight: 400;
+}
+
+.divider {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 761px;
+    max-width: 80%;
+    height: 0px;
+    outline: 2px #F2090D solid;
+    outline-offset: -1px;
+}
+
+/* Cards Row - Centers cards */
+.cards-row {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+/* Team Cards */
+.team-card {
+    position: relative;
+    width: 300px;
+    height: 420px;
+    background: rgba(0, 0, 0, 0.6);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    z-index: 1;
+    backdrop-filter: blur(5px);
+}
+
+/* Team member image */
+.team-card .card-img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    background: rgba(21, 21, 21, 0.3);
+}
+
+/* Card text container (name and role) */
+.team-card .card-text {
+    position: absolute;
+    bottom: 60px;
+    left: 0;
+    width: 100%;
+    height: calc(30% - 60px);
+    background: #151515;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+/* Name styling - larger font */
+.team-card .card-text .name {
+    display: block;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 1.4;
+    margin-bottom: 6px;
+    font-family: 'Rakkas', cursive;
+    letter-spacing: 0.5px;
+}
+
+/* Role styling - smaller font */
+.team-card .card-text .role {
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.3;
+    opacity: 0.85;
+    font-family: 'Raleway', sans-serif;
+    font-style: normal;
+}
+
+/* Social Icons Container */
+.team-card .social-icons {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    width: 100%;
+    z-index: 10;
+}
+
+/* Social Icons */
+.team-card .social-icons a {
+    display: inline-flex !important;
+    width: 32px !important;
+    height: 32px !important;
+    transition: transform 0.2s ease;
+    align-items: center !important;
+    justify-content: center !important;
+    flex-shrink: 0 !important;
+}
+
+.team-card .social-icons a:hover {
+    transform: scale(1.15);
+}
+
+.team-card .social-icons img {
+    width: 32px !important;
+    height: 32px !important;
+    max-width: 32px !important;
+    max-height: 32px !important;
+    min-width: 32px !important;
+    min-height: 32px !important;
+    object-fit: contain !important;
+    filter: brightness(0) invert(1) !important;
+    display: block !important;
+    box-sizing: border-box !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+/* ============================================
+   MOBILE RESPONSIVE STYLES
+   ============================================ */
+
+/* Tablet Styles (768px - 1024px) */
+@media (max-width: 1024px) {
+    .cards-row {
+        gap: 30px;
+        padding: 0 15px;
+    }
+    
+    .team-card {
+        width: 280px;
+        height: 400px;
+    }
+    
+    .title {
+        font-size: 32px;
+    }
+    
+    .section-title {
+        font-size: 36px;
+    }
+}
+
+/* Mobile Styles (up to 768px) */
+@media (max-width: 768px) {
+    .team-section {
+        min-height: auto;
+        padding-bottom: 100px;
+        padding-top: 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    /* Video background mobile optimization */
+    .team-section .video-bg {
+        min-width: 100%;
+        min-height: 100%;
+    }
+    
+    /* Adjust overlay opacity on mobile for better visibility */
+    .video-overlay-image .overlay-img {
+        opacity: 0.3;
+    }
+    
+    /* Adjust dark overlay for mobile */
+    .team-section::before {
+        background: rgba(0, 0, 0, 0.6);
+    }
+
+    /* Section titles - use relative positioning on mobile */
+    .section-title {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        font-size: 28px;
+        padding: 0 15px;
+        margin: 50px 0 15px 0;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* First section title */
+    .section-title:first-of-type {
+        margin-top: 30px;
+    }
+
+    .divider {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        width: 90%;
+        max-width: 90%;
+        margin: 0 auto 25px auto;
+    }
+    
+    /* Ensure title and highlight box work on mobile */
+    .title {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 15px 0;
+        font-size: 24px;
+        white-space: normal;
+        line-height: 1.3;
+        padding: 0 15px;
+        width: 100%;
+        max-width: 100%;
+    }
+    
+    .highlight-box {
+        position: relative !important;
+        top: auto !important;
+        left: auto !important;
+        transform: none !important;
+        margin: 0 auto -45px auto;
+        height: 45px;
+        width: 100%;
+        max-width: 95%;
+    }
+
+    /* Cards row - stack vertically */
+    .cards-row {
+        position: relative !important;
+        left: auto !important;
+        top: auto !important;
+        transform: none !important;
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+        padding: 20px 15px;
+        width: 100%;
+        max-width: 100%;
+        margin: 0;
+    }
+
+    /* Team cards - smaller on mobile */
+    .team-card {
+        width: 100%;
+        max-width: 300px;
+        height: 380px;
+        margin: 0 auto;
+    }
+
+    /* Card text */
+    .team-card .card-text .name {
+        font-size: 20px;
+    }
+
+    .team-card .card-text .role {
+        font-size: 13px;
+    }
+
+    /* Social icons - smaller on mobile */
+    .team-card .social-icons {
+        gap: 10px;
+    }
+
+    .team-card .social-icons a {
+        width: 24px !important;
+        height: 24px !important;
+    }
+
+    .team-card .social-icons img {
+        width: 24px !important;
+        height: 24px !important;
+        max-width: 24px !important;
+        max-height: 24px !important;
+        min-width: 24px !important;
+        min-height: 24px !important;
+    }
+}
+
+/* Small Mobile Devices (up to 480px) */
+@media (max-width: 480px) {
+    .title {
+        font-size: 20px;
+        top: 10px;
+        padding: 0 10px;
+    }
+
+    .highlight-box {
+        top: 10px;
+        height: 40px;
+    }
+
+    .section-title {
+        font-size: 24px;
+    }
+
+    .cards-row {
+        gap: 25px;
+        padding: 15px 10px;
+    }
+
+    .team-card {
+        width: 100%;
+        max-width: 280px;
+        height: 360px;
+    }
+
+    .team-card .card-text {
+        padding: 8px;
+    }
+
+    .team-card .card-text .name {
+        font-size: 18px;
+        margin-bottom: 4px;
+    }
+
+    .team-card .card-text .role {
+        font-size: 12px;
+    }
+
+    .team-card .social-icons {
+        gap: 8px;
+    }
+
+    .team-card .social-icons a {
+        width: 20px !important;
+        height: 20px !important;
+    }
+
+    .team-card .social-icons img {
+        width: 20px !important;
+        height: 20px !important;
+        max-width: 20px !important;
+        max-height: 20px !important;
+        min-width: 20px !important;
+        min-height: 20px !important;
+    }
+}
+
+/* Landscape Mobile Orientation */
+@media (max-width: 768px) and (orientation: landscape) {
+    .team-card {
+        max-width: 250px;
+        height: 350px;
+    }
+    
+    .cards-row {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+

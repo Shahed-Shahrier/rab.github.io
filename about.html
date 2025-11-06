@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About Us | Really Annoying Bots</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,400&family=Rakkas&family=Gajraj+One&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="about.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Top bar -->
+    <div class="topbar">
+      <div class="brand">
+        <span class="glow white">Really</span>
+        <span class="glow offwhite"> </span>
+        <span class="glow white">Annoying</span>
+        <span class="glow offwhite"> </span>
+        <span class="glow fdfdfd">Bots (RAB)</span>
+      </div>
+
+     <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+
+     <nav class="nav">
+  <a href="index.html" class="nav-link">Home</a>
+  <a href="blog.html" class="nav-link">Blogs</a>
+
+  <div class="nav-dropdown">
+    <a href="#" class="nav-link dropdown-toggle">About <span class="down-icon">▼</span></a>
+    <div class="dropdown-container">
+      <a href="about.html" class="nav-link">About Us</a>
+      <a href="our-team.html" class="nav-link">Our Team</a>
+    </div>
+  </div>
+
+  <a href="achievements.html" class="nav-link">Achievements</a>
+  <a href="contact.html" class="nav-link">Contact</a>
+</nav>
+
+    </div>
+  <div class="about-container">
+    <div class="dot-grid">
+      <!-- Dots are created dynamically via CSS grid -->
+    </div>
+
+    <div class="image-frame">
+      <div class="bg-box"></div>
+      <div class="outline-box outline1"></div>
+      <div class="outline-box outline2"></div>
+      <img src="public/IMG_0585~2 (1).jpg" alt="About Us Image" class="about-img" loading="lazy" decoding="async">
+    </div>
+
+    <div class="text-section">
+      <h1>About Us</h1>
+      <p>
+        Founded in August 2024 by <strong>SM Shahrier Emon</strong>, Really Annoying Bots (RAB) began as a small idea among curious minds who loved breaking systems to understand them. What started as casual experiments in automation and security has evolved into a bold, dedicated team driven by curiosity and creativity.
+      </p>
+      <p>
+        RAB isn't just a name—it's an attitude. We challenge norms, push limits, and stay "annoyingly" persistent until we uncover the flaw or the smarter way forward. Our team blends coders, pentesters, and creative problem solvers, united by collaboration and a passion for redefining cybersecurity.
+      </p>
+      <p>
+        We're not here to blend in. We're here to disrupt, innovate, and leave the digital world sharper, smarter, and more secure.
+      </p>
+    </div>
+
+    <!-- Our Mission Section -->
+    <div class="mission-text-section">
+      <h1>Our Mission</h1>
+      <p>
+        At Really Annoying Bots, our mission is to revolutionize cybersecurity through innovative solutions and relentless dedication. We believe in pushing boundaries and challenging the status quo to create a more secure digital future.
+      </p>
+      <p>
+        Our commitment extends beyond just technical excellence. We aim to empower organizations and individuals with cutting-edge security tools and knowledge, fostering a community of security-conscious innovators.
+      </p>
+      <p>
+        Through continuous research, development, and collaboration, we strive to stay ahead of emerging threats while building solutions that are both powerful and accessible.
+      </p>
+    </div>
+
+    <div class="mission-image-frame">
+      <div class="mission-bg-box"></div>
+      <div class="mission-outline-box mission-outline1"></div>
+      <div class="mission-outline-box mission-outline2"></div>
+      <img src="public/DSC07255~2 (1).jpg" alt="Our Mission Image" class="mission-img" loading="lazy" decoding="async">
+    </div>
+  </div>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    if (mobileMenuToggle && nav) {
+      mobileMenuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        nav.classList.toggle('active');
+        // Change icon when menu is open/closed
+        if (nav.classList.contains('active')) {
+          this.textContent = '✕';
+        } else {
+          this.textContent = '☰';
+        }
+      });
+
+      // Close menu when clicking on a regular link (not dropdown toggle)
+      const regularNavLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-container .nav-link');
+      regularNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 768) {
+            nav.classList.remove('active');
+            mobileMenuToggle.textContent = '☰';
+            // Also close dropdown when clicking a dropdown link
+            const dropdown = document.querySelector('.nav-dropdown.active');
+            if (dropdown) {
+              dropdown.classList.remove('active');
+            }
+          }
+        });
+      });
+
+      // Close menu when clicking outside
+      document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) {
+          if (!nav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+            nav.classList.remove('active');
+            mobileMenuToggle.textContent = '☰';
+            // Close dropdown too
+            const dropdown = document.querySelector('.nav-dropdown.active');
+            if (dropdown) {
+              dropdown.classList.remove('active');
+            }
+          }
+        }
+      });
+    }
+
+    // Mobile dropdown toggle (for touch devices)
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const navDropdown = document.querySelector('.nav-dropdown');
+
+    if (dropdownToggle && navDropdown) {
+      // Handle both click and touch events
+      const handleToggle = function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          e.stopPropagation(); // Prevent closing the main menu
+          navDropdown.classList.toggle('active');
+        }
+      };
+
+      dropdownToggle.addEventListener('click', handleToggle);
+      dropdownToggle.addEventListener('touchend', function(e) {
+        handleToggle(e);
+        e.stopPropagation();
+      });
+
+      // Close dropdown when clicking outside of it (but inside the nav menu)
+      document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) {
+          // If clicking on nav but not on dropdown elements, close dropdown
+          if (nav && nav.contains(event.target)) {
+            if (!navDropdown.contains(event.target) && navDropdown.classList.contains('active')) {
+              // Only close if clicking on other nav items (not the dropdown area)
+              if (!event.target.closest('.nav-dropdown')) {
+                navDropdown.classList.remove('active');
+              }
+            }
+          }
+        }
+      });
+    }
+
+    // Handle window resize - close dropdowns when switching to desktop
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        const activeDropdown = document.querySelector('.nav-dropdown.active');
+        if (activeDropdown) {
+          activeDropdown.classList.remove('active');
+        }
+        if (nav && nav.classList.contains('active')) {
+          nav.classList.remove('active');
+          if (mobileMenuToggle) {
+            mobileMenuToggle.textContent = '☰';
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

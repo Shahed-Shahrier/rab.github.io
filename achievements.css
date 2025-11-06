@@ -1,0 +1,497 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Raleway', sans-serif;
+  background: linear-gradient(180deg, #0a0a0a 0%, #020604 100%);
+  color: #f0f5fd;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Remove homepage background image and overlay from achievements page */
+body::after {
+  display: none !important;
+}
+
+/* Override homepage background - achievements specific background image */
+body::before {
+  content: "" !important;
+  position: fixed !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  background: url('public/achievements.jpg') center/cover no-repeat !important;
+  opacity: 0.4 !important;
+  z-index: 0 !important;
+  pointer-events: none !important;
+  display: block !important;
+}
+
+.achievements-section {
+  width: 100%;
+  padding: 100px 20px 80px;
+  text-align: center;
+  padding-top: 150px;
+  position: relative;
+  z-index: 1;
+}
+
+.section-title {
+  font-size: 64px;
+  color: #f0f5fd;
+  text-transform: uppercase;
+  margin-bottom: 80px;
+  letter-spacing: 2px;
+  position: relative;
+  font-family: 'Rakkas', cursive;
+  font-weight: 400;
+}
+
+.section-title::after {
+  content: "";
+  display: block;
+  width: 120px;
+  height: 4px;
+  background: #ef0003;
+  margin: 20px auto;
+  border-radius: 2px;
+}
+
+.category {
+  margin-bottom: 100px;
+  position: relative;
+}
+
+.category-title {
+  font-size: 36px;
+  color: #ffffff;
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+  font-family: 'Rakkas', cursive;
+  font-weight: 400;
+}
+
+/* Horizontal Scrolling Containers */
+.cards-container {
+  display: flex;
+  gap: 0;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  padding: 20px 0;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  position: relative;
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 5%,
+    black 95%,
+    transparent
+  );
+}
+
+/* Auto-scrolling animation wrapper */
+.scroll-left-container,
+.scroll-right-container {
+  display: flex;
+  gap: 24px;
+  width: fit-content;
+}
+
+/* Left to Right Auto-scroll */
+.scroll-left-container {
+  animation: scrollLeft 25s linear infinite;
+}
+
+/* Static sections (National and Inter-University) - NO ANIMATION */
+.static-section .cards-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  padding: 20px;
+  overflow-x: visible;
+  mask-image: none;
+  -webkit-mask-image: none;
+}
+
+.static-cards {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Ensure achievement cards work well in static sections - EXACTLY like International */
+.static-section .achievement-card,
+.static-cards .achievement-card,
+.static-section .cards-container .achievement-card {
+  flex-shrink: 0;
+  background: rgba(255, 255, 255, 0.158) !important;
+  backdrop-filter: blur(.5px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 16px !important;
+  padding: 30px 25px 30px 25px !important;
+  min-width: 320px !important;
+  max-width: 320px !important;
+  transition: transform 0.3s ease !important;
+  position: relative !important;
+  cursor: pointer !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+}
+
+.static-section .achievement-card:hover,
+.static-cards .achievement-card:hover,
+.static-section .cards-container .achievement-card:hover {
+  transform: scale(1.05) !important;
+  background: rgba(255, 255, 255, 0.158) !important;
+  backdrop-filter: blur(.5px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+}
+
+/* Pause animation on hover - no glow, just stops and scale */
+.cards-container:hover .scroll-left-container {
+  animation-play-state: paused;
+}
+
+@keyframes scrollLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(calc(-50% - 12px));
+  }
+}
+
+@keyframes scrollRight {
+  0% {
+    transform: translateX(calc(-50% - 12px));
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Hide scrollbar for cleaner look but keep functionality */
+.cards-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.cards-container::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.cards-container::-webkit-scrollbar-thumb {
+  background: #ef0003;
+  border-radius: 10px;
+}
+
+.cards-container::-webkit-scrollbar-thumb:hover {
+  background: #ff0003;
+}
+
+/* Achievement Cards - Glassy Effect (Applied to ALL cards) */
+.achievement-card,
+.scroll-left-container .achievement-card,
+.scroll-right-container .achievement-card,
+.static-cards .achievement-card {
+  background: rgba(255, 255, 255, 0.158) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+  border-radius: 16px;
+  padding: 30px 25px 30px 25px;
+  min-width: 320px;
+  max-width: 320px;
+  flex-shrink: 0;
+  text-align: left;
+  transition: transform 0.3s ease;
+  position: relative;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.achievement-card:hover,
+.scroll-left-container .achievement-card:hover,
+.scroll-right-container .achievement-card:hover,
+.static-cards .achievement-card:hover {
+  transform: scale(1.05) !important;
+  background: rgba(255, 255, 255, 0.158) !important;
+  backdrop-filter: blur(15px) !important;
+  -webkit-backdrop-filter: blur(15px) !important;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2) !important;
+}
+
+.achievement-card p {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.7;
+  color: #e0e5ed;
+  padding-right: 55px;
+  padding-top: 5px;
+}
+
+.icon {
+  font-size: 40px;
+  position: absolute;
+  top: 20px;
+  right: 25px;
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+  line-height: 1;
+}
+
+.achievement-card:hover .icon {
+  transform: scale(1.2) rotate(5deg);
+}
+
+.highlight {
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 18px;
+  display: block;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+
+.gold {
+  color: #ffd700;
+  font-weight: 700;
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  display: inline-block;
+  padding: 2px 6px;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 4px;
+}
+
+/* Scroll Indicators */
+.scroll-left-container::after,
+.scroll-right-container::after {
+  content: "→";
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 24px;
+  color: #ef0003;
+  opacity: 0.3;
+  pointer-events: none;
+  animation: pulse 2s infinite;
+}
+
+.scroll-right-container::after {
+  content: "←";
+  left: 20px;
+  right: auto;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .achievements-section {
+    padding: 120px 10px 60px;
+  }
+
+  .section-title {
+    font-size: 42px;
+    margin-bottom: 50px;
+  }
+
+  .category-title {
+    font-size: 28px;
+    margin-bottom: 30px;
+  }
+
+  .category {
+    margin-bottom: 60px;
+  }
+
+  .achievement-card {
+    min-width: 280px;
+    max-width: 280px;
+    padding: 20px;
+  }
+
+  .achievement-card p {
+    font-size: 14px;
+  }
+
+  .highlight {
+    font-size: 16px;
+  }
+
+  .icon {
+    font-size: 28px;
+    top: 15px;
+    right: 20px;
+  }
+
+  .cards-container {
+    padding: 15px 5px;
+    gap: 16px;
+  }
+
+  .scroll-left-container::after,
+  .scroll-right-container::after {
+    display: none;
+  }
+}
+
+/* Small Mobile Devices */
+@media (max-width: 480px) {
+  .achievements-section {
+    padding: 100px 5px 40px;
+  }
+
+  .section-title {
+    font-size: 32px;
+    margin-bottom: 40px;
+  }
+
+  .category-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .achievement-card {
+    min-width: 260px;
+    max-width: 260px;
+    padding: 18px;
+  }
+
+  .achievement-card p {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .highlight {
+    font-size: 15px;
+  }
+
+  .icon {
+    font-size: 24px;
+  }
+}
+
+/* Tablet */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .achievement-card {
+    min-width: 300px;
+    max-width: 300px;
+  }
+
+  .cards-container {
+    gap: 20px;
+  }
+}
+
+/* Laptop - Scale down slightly but keep same layout */
+@media (min-width: 1025px) and (max-width: 1440px) {
+  .achievements-section {
+    padding-top: 140px;
+    padding-bottom: 70px;
+  }
+
+  .section-title {
+    font-size: 56px;
+    margin-bottom: 70px;
+  }
+
+  .category-title {
+    font-size: 36px;
+    margin-bottom: 35px;
+  }
+
+  .achievement-card {
+    min-width: 340px;
+    max-width: 340px;
+    padding: 24px;
+  }
+
+  .achievement-card p {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .highlight {
+    font-size: 18px;
+  }
+
+  .icon {
+    font-size: 32px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1440px) {
+  .achievement-card {
+    min-width: 360px;
+    max-width: 360px;
+  }
+}
+
+/* Smooth scrolling enhancement */
+.cards-container {
+  scroll-padding: 20px;
+}
+
+/* Placeholder for future achievements */
+.placeholder-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 30px;
+  min-width: 320px;
+  max-width: 320px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.3);
+  font-style: italic;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.placeholder-card:hover {
+  border-color: rgba(239, 0, 3, 0.3);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+/* Ensure cards don't break layout */
+.cards-container::before,
+.cards-container::after {
+  content: "";
+  flex-shrink: 0;
+  width: 10px;
+}

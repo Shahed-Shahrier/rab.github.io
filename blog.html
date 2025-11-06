@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blogs | Really Annoying Bots</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:ital,wght@1,400&family=Rakkas&family=Gajraj+One&display=swap">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="blog.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <div class="topbar">
+    <div class="brand">
+      <span class="glow white">Really</span>
+      <span class="glow offwhite"> </span>
+      <span class="glow white">Annoying</span>
+      <span class="glow offwhite"> </span>
+      <span class="glow fdfdfd">Bots (RAB)</span>
+    </div>
+
+    <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+
+    <nav class="nav">
+      <a href="index.html" class="nav-link">Home</a>
+      <a href="blog.html" class="nav-link">Blogs</a>
+
+      <div class="nav-dropdown">
+        <a href="#" class="nav-link dropdown-toggle">About <span class="down-icon">▼</span></a>
+        <div class="dropdown-container">
+          <a href="about.html" class="nav-link">About Us</a>
+          <a href="our-team.html" class="nav-link">Our Team</a>
+        </div>
+      </div>
+
+      <a href="achievements.html" class="nav-link">Achievements</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+  </div>
+
+  <!-- Video Background -->
+  <video autoplay muted loop playsinline class="video-bg">
+    <source src="public/1029 (1).mp4" type="video/mp4">
+    <source src="public/background-video.webm" type="video/webm">
+  </video>
+  
+  <!-- Image Overlay on Video -->
+  <div class="video-overlay-image">
+    <img src="public/Untitled design (2) (1).jpg" alt="Overlay" class="overlay-img">
+  </div>
+
+  <!-- Blog Section -->
+  <section class="blog-section">
+    <div class="blog-container">
+      <h1 class="blog-title">Our Blogs</h1>
+      
+      <div class="blog-grid">
+        <!-- Blog Card 1 -->
+        <article class="blog-card" data-blog-id="1">
+          <div class="blog-card-image">
+            <img src="https://placehold.co/400x250/1a1a1a/ffffff?text=Blog+Post+1" alt="Blog Post 1">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Getting Started with CTF Competitions</h2>
+          </div>
+        </article>
+
+        <!-- Blog Card 2 -->
+        <article class="blog-card" data-blog-id="2">
+          <div class="blog-card-image">
+            <img src="https://placehold.co/400x250/1a1a1a/ffffff?text=Blog+Post+2" alt="Blog Post 2">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Reverse Engineering Techniques</h2>
+          </div>
+        </article>
+
+        <!-- Blog Card 3 -->
+        <article class="blog-card" data-blog-id="3">
+          <div class="blog-card-image">
+            <img src="https://placehold.co/400x250/1a1a1a/ffffff?text=Blog+Post+3" alt="Blog Post 3">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Web Security Fundamentals</h2>
+          </div>
+        </article>
+
+        <!-- Blog Card 4 -->
+        <article class="blog-card" data-blog-id="4">
+          <div class="blog-card-image">
+            <img src="https://placehold.co/400x250/1a1a1a/ffffff?text=Blog+Post+4" alt="Blog Post 4">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Cryptography for Beginners</h2>
+          </div>
+        </article>
+
+        <!-- Blog Card 5 -->
+        <article class="blog-card" data-blog-id="5">
+          <div class="blog-card-image">
+            <img src="https://placehold.co/400x250/1a1a1a/ffffff?text=Blog+Post+5" alt="Blog Post 5">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Forensics Investigation Guide</h2>
+          </div>
+        </article>
+
+        <!-- Blog Card 6 -->
+        <article class="blog-card" data-blog-id="6">
+          <div class="blog-card-image">
+            <img src="https://placehold.co/400x250/1a1a1a/ffffff?text=Blog+Post+6" alt="Blog Post 6">
+          </div>
+          <div class="blog-card-content">
+            <h2 class="blog-card-title">Network Security Basics</h2>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Full Blog Post View -->
+  <div class="blog-post-overlay" id="blogPostOverlay">
+    <button class="close-btn" id="closeBtn">&times;</button>
+    <div class="blog-post-container">
+      <div class="blog-post-content" id="blogPostContent">
+        <!-- Content will be inserted here via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Blog Post Data -->
+  <script id="blogPostsData" type="application/json">
+    {
+      "1": {
+        "title": "Getting Started with CTF Competitions",
+        "image": "https://placehold.co/800x400/1a1a1a/ffffff?text=Blog+Post+1",
+        "content": "<p>Capture The Flag (CTF) competitions are an exciting way to learn cybersecurity skills. In this comprehensive guide, we'll walk you through everything you need to know to get started.</p><p>CTFs come in various formats including Jeopardy-style, Attack-Defense, and King of the Hill. Jeopardy-style CTFs are the most common and consist of challenges across different categories like reverse engineering, cryptography, web exploitation, forensics, and more.</p><p>To get started, you'll need to familiarize yourself with basic Linux commands, programming languages like Python, and common security tools. Practice on platforms like CTFtime, Hack The Box, and TryHackMe to build your skills.</p><p>Remember, the key to success in CTFs is persistence, teamwork, and continuous learning. Join a team, participate in competitions, and never stop practicing!</p>"
+      },
+      "2": {
+        "title": "Reverse Engineering Techniques",
+        "image": "https://placehold.co/800x400/1a1a1a/ffffff?text=Blog+Post+2",
+        "content": "<p>Reverse engineering is a critical skill in cybersecurity that involves analyzing software to understand its functionality without access to the source code.</p><p>Common tools used in reverse engineering include IDA Pro, Ghidra, x64dbg, and Radare2. These tools help decompile and analyze binary files to understand their behavior.</p><p>Key techniques include static analysis (examining code without running it), dynamic analysis (running code in a controlled environment), and binary patching (modifying executable files).</p><p>Learning reverse engineering takes time and practice. Start with simple crackme challenges and gradually work your way up to more complex binaries.</p>"
+      },
+      "3": {
+        "title": "Web Security Fundamentals",
+        "image": "https://placehold.co/800x400/1a1a1a/ffffff?text=Blog+Post+3",
+        "content": "<p>Web security is essential in today's digital world. Understanding common vulnerabilities is crucial for both developers and security professionals.</p><p>Common web vulnerabilities include SQL Injection, Cross-Site Scripting (XSS), Cross-Site Request Forgery (CSRF), and Server-Side Request Forgery (SSRF).</p><p>OWASP Top 10 is a great resource for learning about the most critical web application security risks. Familiarize yourself with these vulnerabilities and how to prevent them.</p><p>Tools like Burp Suite, OWASP ZAP, and browser developer tools are essential for web security testing. Practice on intentionally vulnerable applications like DVWA, WebGoat, or PortSwigger Web Security Academy.</p>"
+      },
+      "4": {
+        "title": "Cryptography for Beginners",
+        "image": "https://placehold.co/800x400/1a1a1a/ffffff?text=Blog+Post+4",
+        "content": "<p>Cryptography is the practice of secure communication in the presence of adversaries. Understanding cryptographic principles is fundamental to cybersecurity.</p><p>Basic concepts include encryption, decryption, hashing, and digital signatures. Symmetric encryption uses the same key for both encryption and decryption, while asymmetric encryption uses a pair of keys.</p><p>Common cryptographic algorithms include AES (symmetric), RSA (asymmetric), and SHA-256 (hashing). Each has its own use cases and security properties.</p><p>In CTF competitions, cryptographic challenges often involve breaking weak implementations, identifying encryption algorithms, or exploiting mathematical vulnerabilities. Practice on platforms like CryptoHack to improve your skills.</p>"
+      },
+      "5": {
+        "title": "Forensics Investigation Guide",
+        "image": "https://placehold.co/800x400/1a1a1a/ffffff?text=Blog+Post+5",
+        "content": "<p>Digital forensics involves the investigation of digital evidence to uncover security incidents or solve cybercrimes.</p><p>Forensics challenges in CTFs typically involve analyzing files, network traffic, memory dumps, or disk images to find hidden information or solve mysteries.</p><p>Essential tools include Wireshark (network analysis), Volatility (memory forensics), Autopsy (disk image analysis), and various file analysis tools like binwalk, strings, and hex editors.</p><p>Key skills include file carving, steganography detection, log analysis, and understanding file systems. Practice on forensic challenges from platforms like CyberDefenders and CTF challenges.</p>"
+      },
+      "6": {
+        "title": "Network Security Basics",
+        "image": "https://placehold.co/800x400/1a1a1a/ffffff?text=Blog+Post+6",
+        "content": "<p>Network security is crucial for protecting systems and data from unauthorized access and attacks.</p><p>Understanding network protocols, packet analysis, and common network vulnerabilities is essential for cybersecurity professionals.</p><p>Tools like Wireshark, tcpdump, and Nmap are fundamental for network analysis and security testing. These tools help identify network issues, analyze traffic, and discover vulnerabilities.</p><p>Common network attacks include man-in-the-middle attacks, ARP spoofing, DNS poisoning, and denial-of-service attacks. Understanding these threats helps in both defense and offensive security contexts.</p><p>Practice network security through labs, CTF challenges, and hands-on projects to build practical skills.</p>"
+      }
+    }
+  </script>
+
+  <script>
+    // Mobile menu toggle
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const nav = document.querySelector('.nav');
+
+    if (mobileMenuToggle && nav) {
+      mobileMenuToggle.addEventListener('click', function(e) {
+        e.stopPropagation();
+        nav.classList.toggle('active');
+        if (nav.classList.contains('active')) {
+          this.textContent = '✕';
+        } else {
+          this.textContent = '☰';
+        }
+      });
+
+      const regularNavLinks = document.querySelectorAll('.nav-link:not(.dropdown-toggle), .dropdown-container .nav-link');
+      regularNavLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          if (window.innerWidth <= 768) {
+            nav.classList.remove('active');
+            mobileMenuToggle.textContent = '☰';
+            const dropdown = document.querySelector('.nav-dropdown.active');
+            if (dropdown) {
+              dropdown.classList.remove('active');
+            }
+          }
+        });
+      });
+
+      document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) {
+          if (!nav.contains(event.target) && !mobileMenuToggle.contains(event.target)) {
+            nav.classList.remove('active');
+            mobileMenuToggle.textContent = '☰';
+            const dropdown = document.querySelector('.nav-dropdown.active');
+            if (dropdown) {
+              dropdown.classList.remove('active');
+            }
+          }
+        }
+      });
+    }
+
+    // Mobile dropdown toggle
+    const dropdownToggle = document.querySelector('.dropdown-toggle');
+    const navDropdown = document.querySelector('.nav-dropdown');
+
+    if (dropdownToggle && navDropdown) {
+      const handleToggle = function(e) {
+        if (window.innerWidth <= 768) {
+          e.preventDefault();
+          e.stopPropagation();
+          navDropdown.classList.toggle('active');
+        }
+      };
+
+      dropdownToggle.addEventListener('click', handleToggle);
+      dropdownToggle.addEventListener('touchend', function(e) {
+        handleToggle(e);
+        e.stopPropagation();
+      });
+
+      document.addEventListener('click', function(event) {
+        if (window.innerWidth <= 768) {
+          if (nav && nav.contains(event.target)) {
+            if (!navDropdown.contains(event.target) && navDropdown.classList.contains('active')) {
+              if (!event.target.closest('.nav-dropdown')) {
+                navDropdown.classList.remove('active');
+              }
+            }
+          }
+        }
+      });
+    }
+
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 768) {
+        const activeDropdown = document.querySelector('.nav-dropdown.active');
+        if (activeDropdown) {
+          activeDropdown.classList.remove('active');
+        }
+        if (nav && nav.classList.contains('active')) {
+          nav.classList.remove('active');
+          if (mobileMenuToggle) {
+            mobileMenuToggle.textContent = '☰';
+          }
+        }
+      }
+    });
+
+    // Blog post functionality
+    const blogCards = document.querySelectorAll('.blog-card');
+    const overlay = document.getElementById('blogPostOverlay');
+    const closeBtn = document.getElementById('closeBtn');
+    const blogPostContent = document.getElementById('blogPostContent');
+    const blogPostsData = JSON.parse(document.getElementById('blogPostsData').textContent);
+
+    blogCards.forEach(card => {
+      card.addEventListener('click', function() {
+        const blogId = this.getAttribute('data-blog-id');
+        const blogData = blogPostsData[blogId];
+        
+        if (blogData) {
+          blogPostContent.innerHTML = `
+            <div class="blog-post-image">
+              <img src="${blogData.image}" alt="${blogData.title}">
+            </div>
+            <h1 class="blog-post-title">${blogData.title}</h1>
+            <div class="blog-post-text">
+              ${blogData.content}
+            </div>
+          `;
+          overlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        }
+      });
+    });
+
+    function closeBlogPost() {
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    closeBtn.addEventListener('click', closeBlogPost);
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        closeBlogPost();
+      }
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && overlay.classList.contains('active')) {
+        closeBlogPost();
+      }
+    });
+  </script>
+</body>
+</html>
+
